@@ -1,0 +1,50 @@
+{
+    "fields": [
+        {
+            "name": "daytype_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "datum",
+            "type": "date"
+        },
+       
+        
+         {
+             "name": "note",
+             "type": "string#nullable"
+         }
+    ],  
+    "foreign_keys": [
+    
+        {
+            "column": "daytype_id",
+            "references": "id",
+            "on": "daytypes"
+        }
+    ],
+    "relationships": [
+  
+     
+        {
+            "name": "daytype",
+            "type": "belongsTo",
+            "class": "App\\Daytype"
+        }
+      
+
+    ],
+
+    "validations": [
+        {
+            "field": "worker_id",  "rules": "integer"
+        },
+        {
+            "field": "datum",       "rules": "required|date"
+        },
+      
+        {
+            "field": "note",        "rules": "string"
+        }
+    ]
+}

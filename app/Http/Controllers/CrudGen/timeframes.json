@@ -1,0 +1,77 @@
+{
+    "fields": [ 
+      
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "unit",
+            "type": "select",
+            "options": ["nap", "hét", "hónap"]
+        }, 
+         {
+            "name": "long",
+            "type": "integer"
+        },
+        {
+            "name": "start",
+            "type": "date"
+        }, 
+        {
+            "name": "hourmax",
+            "type": "integer#nullable"
+        },
+        {
+            "name": "hourmin",
+            "type": "integer#nullable"
+        },
+        {
+            "name": "note",
+            "type": "string#nullable"
+        },
+        {
+            "name": "pub",
+            "type": "integer"
+        }
+    ],
+    
+     "relationships": [
+         {
+            "name": "worker",
+            "type": "belongsToMany",
+            "class": "App\\Worker"
+        }
+     ],
+     
+      "validations": [
+       
+          {
+              "field": "name",
+              "rules": "required|max:200 "
+          },
+          {
+            "field": "start",
+            "rules": "required|date"
+          },  
+          {
+            "field": "unit",
+            "rules": "required|max:50"
+          }, 
+          {
+            "field": "long",
+            "rules": "required"
+          },
+          {
+              "field": "note",
+              "rules": "max:200"
+          },  
+          {
+              "field": "pub",
+              "rules": "max:4"
+          }
+     
+      ]
+  
+
+}

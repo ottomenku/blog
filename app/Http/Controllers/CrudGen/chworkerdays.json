@@ -1,0 +1,68 @@
+{
+    "fields": [
+        {
+            "name": "workerday_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "daytype_id",
+            "type": "integer#unsigned"
+        },
+        
+        {
+            "name": "managernote",
+            "type": "string#nullable"
+        },
+        
+        {
+            "name": "workernote",
+            "type": "string#nullable"
+        },
+       
+        {
+            "name": "pub",
+            "type": "integer"
+        }
+    ], 
+    "foreign_keys": [
+        {
+            "column": "workerday_id",
+            "references": "id",
+            "on": "days"
+        },  
+        {
+            "column": "daytype_id",
+            "references": "id",
+            "on": "daytypes"
+        }
+    ], 
+    
+    "relationships": [
+        {
+            "name": "day",
+            "type": "belongsTo",
+            "class": "App\\Day"
+        },
+        {
+            "name": "daytype",
+            "type": "belongsTo",
+            "class": "App\\Daytype"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "day_id",  "rules": "integer"
+        }, 
+        {
+            "field": "daytype_id",      "rules": "required|integer"
+        },
+       
+        {
+            "field": "note",        "rules": "string"
+        },
+        {
+            "field": "pub",       "rules": "integer"
+        } 
+    ]
+}

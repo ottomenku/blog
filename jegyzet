@@ -1,0 +1,86 @@
+
+powershell parancs előzmények:
+C:\Users\motto\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+duplikált sorok eltávolítása: TextFX-> TextFX Tools ->sort lines case sensitive...
+7.5 npp++ nál nincs plugin manager, problémás a  TextFX telepítés
+-----------------------------------------------------
+
+composer create-project --prefer-dist laravel/laravel blog
+ a blog mappából felmásolni a gyökérbe.
+ php artisan serve  //a VS Code start servere nem működött laravel 5.6 nál
+
+ test:
+ ./vendor/bin/phpunit  elvileg a phpunit is működik ha globálisan van feltéve
+ beállítások: phpunit.xml
+
+ login:
+ php artisan make:auth  //felrakja az auth és a layout mappát és a home bladet 
+ és az users, password resets migrciós fileokat.
+
+az .env ben beááítani az adatbázis elérést adatbázist megcsinálni, illesztés: utf8mb4_unicode_ci	
+php artisan key:generate //az autentikációhoz kell
+ Ha akarunk automatisan usereket meg kell csinálni aseeder fájlt
+ php artisan make:seeder UsersTableSeeder
+ és a DatabaseSeeder.php run() meghívni:  $this->call(UsersTableSeeder::class);
+php artisan migrate
+php artisan db:seed
+php artisan migrate:refresh --seed
+A migrattion fájloknak nem mindegy a nevük! A migrációs script abc sorrendben hívja meg (ez álltalában elkészítése sorrend is az elején lévő dátum éls sorszám miatt)
+Ha olan táblát próbál elkészíteni aminek az idegen kulcsa egy nemlétező táblára mutat 
+150 "Foreign key constraint is incorrectly formed" hibával leáll.
+Ha PDOException::("SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes")
+hiba van:
+app/Providers/AppServiceProvider.php 
+use Illuminate\Support\Facades\Schema;
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+Így viszont az user tábla password mezője is csak 191 karakter lesz ami az encrypt függvénynél problémát okozhat
+ezért:
+database/migrations/....create_user_table.php 
+ public function up()
+    {
+        ...
+        $table->string('password',255);
+    }   
+ jogosultságok:
+ composer require appzcoder/laravel-admin //https://github.com/appzcoder/laravel-admin
+ felrakja az aapzcoder/crud-generatort és a laravelcollective/html is
+ adatbázis beállítás a .env fileban
+php artisan laravel-admin:install
+
+php artisan db:seed --class=RolesSeeder
+
+
+--------------------------------------------------------------------------
+
+$array = ['products' => ['desk' => ['price' => 100]]];
+
+$price = array_get($array, 'products.desk.price');
+
+// 100
+
+$array = ['products' => ['desk' => ['price' => 100]]];
+
+$flattened = array_dot($array);
+
+// ['products.desk.price' => 100]
+-------------------------------------
+browser teszt:
+https://laravel.com/docs/5.6/dusk
+composer require --dev laravel/dusk
+php artisan dusk:install
+A  .env -ben beállítani az APP_URL=http://localhost:8000 (alapban nincs port)
+lehet a dusk-nak saját .env-et is csinálni 
+.env.dusk.{environment} pl.: .env.dusk.local
+teszt készítés php artisan dusk:make LoginTest
+futtatás:php artisan dusk
+
+regisztrálás automatikus de ha kell 
+app/Provider/AppServiceProvider.php :
+use Laravel\Dusk\DuskServiceProvider; //fejlécbe nem az osztályba
+  public function register()
+    {
+        $this->app->register(DuskServiceProvider::class);
+    }

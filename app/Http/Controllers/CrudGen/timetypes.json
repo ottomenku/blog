@@ -1,0 +1,51 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },  {
+            "name": "szorzo",
+            "type": "decimal"
+        },  {
+            "name": "fixplusz",
+            "type": "integer"
+        },  {
+            "name": "color",
+            "type": "string"
+        },
+        {
+            "name": "note",
+            "type": "string"
+        }
+    ],
+    
+    "relationships": [
+        {
+            "name": "wroletime",
+            "type": "hasOne",
+            "class": "App\\Wroletime"
+        },{
+            "name": "workertime",
+            "type": "hasOne",
+            "class": "App\\Workertime"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "name",  "rules": "required|string|max:200"
+        },
+        {
+            "field": "szorzo",       "rules": "number"
+        },
+        {
+            "field": "fixplusz",       "rules": "integer"
+        },
+        {
+            "field": "color",       "rules": "string|max:200"
+        },
+        {
+            "field": "note",       "rules": "string|max:200"
+        }
+    ]
+}

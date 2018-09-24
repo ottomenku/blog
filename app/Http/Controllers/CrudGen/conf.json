@@ -1,0 +1,34 @@
+{
+    "fields": [
+
+        {
+            "name": "name",
+            "type": "string"
+        }, 
+        {
+            "name": "value",
+            "type": "string#nullable)"
+        }, 
+
+         {
+            "name": "note",
+            "type": "string#nullable"
+        }
+    ], 
+    
+     "validations": [
+         {
+             "field": "name",
+             "rules": "string|required|max:200 "
+         },  
+         {
+             "field": "value",
+             "rules": "string|max:200"
+         },  
+         {
+             "field": "note",
+             "rules": "string|max:200"
+         }
+    
+     ]
+}

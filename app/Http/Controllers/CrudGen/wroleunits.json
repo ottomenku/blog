@@ -1,0 +1,62 @@
+{
+    "fields": [ 
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "unit",
+            "type": "select",
+            "options": ["nap", "hét", "hónap"]
+        }, 
+         {
+            "name": "long",
+            "type": "integer"
+        },
+      
+        {
+            "name": "note",
+            "type": "string#nullable"
+        },
+        {
+            "name": "pub",
+            "type": "integer"
+        }
+    ],
+   
+    
+    "relationships": [
+        {
+            "name": "daytype",
+            "type": "belongsToMany",
+            "class": "App\\Daytype"
+        }, {
+            "name": "wrole",
+            "type": "belongsToMany",
+            "class": "App\\Wroles"
+        }, {
+            "name": "wroletime",
+            "type": "hasMany",
+            "class": "App\\Wroletime"
+        }
+    ],
+
+    "validations": [
+      
+        {
+            "field": "name",       "rules": "required|string"
+        },
+        {
+            "field": "unit",       "rules": "required|string"
+        },
+        {
+            "field": "long",       "rules": "required|integer"
+        },
+        {
+            "field": "note",       "rules": "string|max:200"
+        },
+        {
+            "field": "pub",       "rules": "integer"
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "fields": [
+      
+        {
+            "name": "name",
+            "type": "string"
+        },
+        
+        {
+            "name": "szorzo",
+            "type": "number#nullable"
+        },
+        {
+            "name": "fixplusz",
+            "type": "integer#nullable"
+        },
+        
+          {
+              "name": "color",
+              "type": "string#nullable"
+          },
+      
+        {
+            "name": "note",
+            "type": "string#nullable"
+        }
+    ], 
+ 
+    
+    "relationships": [
+        {
+            "name": "timeunit",
+            "type": "belongsToMany",
+            "class": "App\\Timunit"
+        },
+        {
+            "name": "day",
+            "type": "hasOne",
+            "class": "App\\Day"
+        },
+        {
+            "name": "chworkerday",
+            "type": "hasOne",
+            "class": "App\\chworkerday"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "name",  "rules": "required|string"
+        },
+        {
+            "field": "szorzo",       "rules": "number"
+        },
+        {
+            "field": "fixplusz",      "rules": "integer"
+        },
+        {
+            "field": "color",        "rules": "string"
+        } ,
+        {
+            "field": "note",        "rules": "string"
+        }
+    ]
+}

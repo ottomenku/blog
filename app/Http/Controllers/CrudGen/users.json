@@ -1,0 +1,42 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "email"
+        },
+         {
+            "name": "password",
+            "type": "password"
+        }
+    ],
+ 
+    "relationships": [
+        {
+            "name": "worker",
+            "type": "hasOne",
+            "class": "App\\worker"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "name",
+            "rules": "required|max:100 "
+        },  
+     
+        {
+            "field": "email",
+            "rules": "required|email"
+        },
+     
+        {
+            "field": "password",
+            "rules": "required|min:6"
+        }
+
+    ]
+}

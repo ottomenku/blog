@@ -1,0 +1,36 @@
+{
+    "fields": [
+        {
+            "name": "email",
+            "type": "email"
+        }, 
+         {
+            "name": "password",
+            "type": "password"
+        },
+      
+         {
+            "name": "password2",
+            "type": "password"
+        }
+    ],
+  
+
+    "validations": [
+        {
+            "field": "email",
+            "rules": "required|email "
+        },  
+     
+        {
+            "field": "password",
+            "rules": "required|min:6"
+        },
+     
+        {
+            "field": "password2",
+            "rules": "required|same:password"
+        }
+
+    ]
+}

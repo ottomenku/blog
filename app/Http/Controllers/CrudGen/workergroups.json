@@ -1,0 +1,42 @@
+{
+    "fields": [
+
+        {
+            "name": "name",
+            "type": "string"
+        }, 
+        {
+            "name": "note",
+            "type": "string"
+        }, 
+
+         {
+            "name": "pub",
+            "type": "integer"
+        }
+    ],
+   
+    "relationships": [
+        {
+            "name": "worker",
+            "type": "hasOne",
+            "class": "App\\Worker"
+        }
+    ],
+    
+     "validations": [
+         {
+             "field": "name",
+             "rules": "required|max:200 "
+         },  
+         {
+             "field": "note",
+             "rules": "max:200"
+         },  
+         {
+             "field": "pub",
+             "rules": "max:4"
+         }
+    
+     ]
+}

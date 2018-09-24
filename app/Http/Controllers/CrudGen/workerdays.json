@@ -1,0 +1,80 @@
+{
+    "fields": [
+        {
+            "name": "worker_id",
+            "type": "integer#unsigned#nullable"
+        }, 
+        {
+            "name": "daytype_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "datum",
+            "type": "date"
+        },
+       
+        {
+            "name": "managernote",
+            "type": "string#nullable"
+        },
+        
+         {
+             "name": "usernote",
+             "type": "string#nullable"
+         }
+    ],  
+    "foreign_keys": [
+        {
+            "column": "worker_id",
+            "references": "id",
+            "on": "workers"
+        },  
+        {
+            "column": "daytype_id",
+            "references": "id",
+            "on": "daytypes"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "workertime",
+            "type": "hasMany",
+            "class": "App\\workertime"
+        },{
+            "name": "chworkerday",
+            "type": "hasOne",
+            "class": "App\\Chworkerday"
+        },
+        {
+            "name": "worker",
+            "type": "belongsTo",
+            "class": "App\\Worker"
+        },
+        {
+            "name": "daytype",
+            "type": "belongsTo",
+            "class": "App\\Daytype"
+        }
+      
+
+    ],
+
+    "validations": [
+        {
+            "field": "worker_id",  "rules": "integer"
+        }, {
+            "field": "daytype_id",  "rules": "integer"
+        },
+        {
+            "field": "datum",       "rules": "required|date"
+        },
+      
+        {
+            "field": "managernote",        "rules": "string|max:150"
+        },
+        
+          {
+              "field": "usernote",        "rules": "string|max:150"
+          }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "fields": [
+          {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "wrole_id",
+            "type": "integer#unsigned"
+        }, 
+        {
+            "name": "status_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "workertype_id",
+            "type": "integer#unsigned"                 
+        },   
+         {
+            "name": "workergroup_id",
+            "type": "integer#unsigned"
+        },   
+ 
+        {
+            "name": "salary",
+            "type": "integer"
+        }, 
+         {
+            "name": "salary_type",
+            "type": "select",
+            "options": ["órabér", "hetibér", "havibér"]
+        },
+
+        {
+            "name": "position",
+            "type": "string"
+        }, 
+        {
+            "name": "foto",
+            "type": "string#nullable"
+        }, 
+
+         {
+            "name": "fullname",
+            "type": "string"
+        }, 
+        {
+            "name": "cim",
+            "type": "string"
+        },
+      
+        {
+            "name": "tel",
+            "type": "string#nullable"
+        },
+        {
+            "name": "birth",
+            "type": "date"
+        },
+        {
+            "name": "ado",
+            "type": "string#nullable"
+        },
+      
+        {
+            "name": "tb",
+            "type": "string#nullable"
+        },
+        {
+            "name": "start",
+            "type": "date"
+        },
+        {
+            "name": "end",
+            "type": "date#nullable"
+        },
+        {
+            "name": "note",
+            "type": "string#nullable"
+        },     
+        {
+            "name": "pub",
+            "type": "integer"
+           
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users"
+        },
+
+        {
+            "column": "wrole_id",
+            "references": "id",
+            "on": "wroles"
+        },
+        {
+            "column": "status_id",
+            "references": "id",
+            "on": "statuses"
+        },
+        {
+            "column": "workertype_id",
+            "references": "id",
+            "on": "workertypes"
+        },   
+        {
+            "column": "workergroup_id",
+            "references": "id",
+            "on": "workergroups"
+        }
+
+
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        },
+        {
+            "name": "workrole",
+            "type": "belongsTo",
+            "class": "App\\Wrole"
+        }
+        ,
+        {
+            "name": "status",
+            "type": "belongsTo",
+            "class": "App\\Status"
+        }
+        ,
+        {
+            "name": "workertype",
+            "type": "belongsTo",
+            "class": "App\\Workertype"
+        }
+        ,
+        {
+            "name": "workergroup",
+            "type": "belongsTo",
+            "class": "App\\Workergroup"
+        } ,
+     
+        {
+            "name": "day",
+            "type": "hasMany",
+            "class": "App\\Day"
+        },
+        {
+            "name": "chworkerday",
+            "type": "hasMany",
+            "class": "App\\Chworkerday"
+        },
+        {
+            "name": "chworkertime",
+            "type": "hasMany",
+            "class": "App\\Chworkertime"
+        }
+        ,
+        {
+            "name": "timeframe",
+            "type": "belongsToMany",
+            "class": "App\\Timeframe"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "fullname",
+            "rules": "required|max:200 "
+        },  
+        {
+            "field": "cim",
+            "rules": "required|max:200"
+        },
+    
+        {
+            "field": "tel",
+            "rules": "max:50"
+        },
+        {
+            "field": "birth",
+            "rules": "required|date"
+        },
+        {
+            "field": "ado",
+            "rules": "string|max:50"
+        },
+      
+        {
+            "field": "tb",
+            "rules": "string|max:50"
+        },
+        {
+            "field": "start",
+            "rules": "required|date"
+        },
+        {
+            "field": "end",
+            "rules": "date"
+        }
+        ,
+        {
+            "field": "pub",
+            "rules": "integer"
+        }
+
+    ]
+}

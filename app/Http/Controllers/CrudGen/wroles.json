@@ -1,0 +1,42 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "note",
+            "type": "string"
+           
+        },
+        {
+            "name": "start",
+            "type": "date"
+        },
+        {
+            "name": "pub",
+            "type": "integer"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "wroleunit",
+            "type": "hasMany",
+            "class": "App\\Wroleunit"
+        }
+    ],
+    "validations": [
+        {
+            "field": "name",  "rules": "required|string|max:200"
+        },
+        {
+            "field": "note",      "rules": "string|max:200"
+        },
+        {
+            "field": "start",      "rules": "string|max:200"
+        },
+        {
+            "field": "pub",      "rules": "integer"
+        }]
+
+}
