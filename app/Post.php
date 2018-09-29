@@ -27,7 +27,7 @@ class Post extends Model
      */
     protected $fillable = ['categori_id','cim','image','hastag','prior','intro','ptext'];
 
-    public function categories()
+    public function categori()
 	{
 		return $this->belongsTo('App\Categori');
 	}

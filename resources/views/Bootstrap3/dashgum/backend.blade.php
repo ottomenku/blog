@@ -15,28 +15,44 @@ $modaltitle=$param['modal']['title'] ?? '' ;
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>DASHGUM - FREE Bootstrap Admin Template</title>
+   
+
 
     <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <!--  external css -->
-     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <!--<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> -->
-    <!-- Custom styles for this template -->
-    <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/css/style-responsive.css" rel="stylesheet">
+    <link href="/admin/assets/css/bootstrap.css" rel="stylesheet">
 
-    <link href="/assets/css/custom.css" rel="stylesheet" />
+
+    <link  href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+    <link href="//fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">                                
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js" ></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/vendor/jasekz/laradrop/js/enyo.dropzone.js"></script>
+    <script src="/vendor/jasekz/laradrop/js/laradrop.js"></script> 
+
+  
+
+    <!--  external css -->
+  <link href="/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet"> 
+    <!-- Custom styles for this template -->
+    <link href="/admin/assets/css/style.css" rel="stylesheet">
+    <link href="/admin/assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- <link href="/admin/assets/css/custom.css" rel="stylesheet" /> -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]
-<script src="/assets/js/jquery-1.8.3.min.js"></script>
--->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="/admin/assets/js/jquery-1.8.3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>  
+
+
+  <link rel="stylesheet" href="/admin/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   
-  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script> 
   <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -62,7 +78,7 @@ $modaltitle=$param['modal']['title'] ?? '' ;
       
          <div style="max-width:100px;position:relative;left:-20px; " class="nav navbar-nav navbar-right">
 
-                <a href="{{ url('/logout') }}"
+                <a href="admin{{ url('/logout') }}"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                     Kijelentkezés
@@ -97,7 +113,7 @@ $modaltitle=$param['modal']['title'] ?? '' ;
 
                     <div class="panel-heading">
 
-                            {!! $controllerParam['cim'] or ''!!} 
+                         
 
                             @yield('content')                   
 
@@ -108,39 +124,34 @@ $modaltitle=$param['modal']['title'] ?? '' ;
 
     </section>
 </section>
-@endsection
+
    
       <!--main content end-->
  
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery.js"></script>
- 
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="/assets/js/jquery.sparkline.js"></script>
+<!--
+        <script src="//admin/assets/js/jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/admin/assets/js/bootstrap.min.js"></script>
+-->
+    <script class="include" type="text/javascript" src="/admin/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/admin/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/admin/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/admin/assets/js/jquery.sparkline.js"></script>
 
 
     <!--common script for all pages-->
-    <script src="/assets/js/common-scripts.js"></script>
+    <script src="/admin/assets/js/common-scripts.js"></script>
     
-    <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="/admin/assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/admin/assets/js/gritter-conf.js"></script>
 
     <!--script for this page-->
-    <script src="/assets/js/sparkline-chart.js"></script>    
-	<script src="/assets/js/zabuto_calendar.js"></script>	
-	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/admin/assets/js/sparkline-chart.js"></script>    
+	<script src="/admin/assets/js/zabuto_calendar.js"></script>	
   
-    
-
-
-
-
-      
 
 	
     <script type="application/javascript">
@@ -153,9 +164,24 @@ $( ".datepickernoyear" ).datepicker({
 });
       
         $(document).ready(function () {
-            $('.printMe').click(function(){
-                $("#naptar").print();
-           });
+          //  jQuery('.laradrop').laradrop();
+    
+            // With custom params:
+            jQuery('.laradrop').laradrop({
+                onInsertCallback: function (src){
+                  jQuery('#avatar').attr('src', src);
+                  $('#myModal2').modal('toggle');
+                },
+                onErrorCallback: function(jqXHR,textStatus,errorThrown){
+                    // if you need an error status indicator, implement here
+                    alert('An error occured: '+ errorThrown);
+                },
+                onSuccessCallback: function(serverData){
+                    // if you need a success status indicator, implement here
+                }
+            }); 
+        
+
         });
         
     </script>
@@ -182,6 +208,8 @@ $( ".datepickernoyear" ).datepicker({
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->  
+   
+
 
   </body>
 </html>

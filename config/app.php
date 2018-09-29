@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'hu',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,8 @@ return [
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
+        //   'Jasekz\Laradrop\LaradropServiceProvider'
+         Jasekz\Laradrop\LaradropServiceProvider::class,
     ],
 
     /*

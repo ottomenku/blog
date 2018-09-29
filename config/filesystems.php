@@ -40,14 +40,58 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
     |
     */
+   
+    'disks' => [
 
+        'laradrop' => [
+                   'driver' => 'local',
+                    'root' => public_path('images'), // will put files in 'public/upload' directory
+                ],
+        
+        
+                    'local' => [
+                        'driver' => 'local',
+                        'root'   => storage_path('app'),
+                    ],
+                    'public' => [
+                        'driver'     => 'local',
+                        'root'       => storage_path('app/public'),
+                        'visibility' => 'public',
+                    ],
+                    'uploads' => [ // used for Backpack/CRUD (in elFinder)
+                        'driver' => 'local',
+                        'root'   => public_path('images'),
+                    ],
+                    'backups' => [ // used for Backpack/BackupManager
+                        'driver' => 'local',
+                        'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
+                    ],
+                    'storage' => [ // used for Backpack/LogManager
+                        'driver' => 'local',
+                        'root'   => storage_path(),
+                    ],
+               
+                ],
+
+    /*
+   'laradrop' => [
+           'driver' => 'local',
+            'root' => public_path('images'), // will put files in 'public/upload' directory
+        ],
     'disks' => [
 
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'public_folder' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+           // 'root' => public_path('uploads'),
+        ],
 
+
+        
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -64,6 +108,9 @@ return [
             'url' => env('AWS_URL'),
         ],
 
-    ],
 
+     
+
+    ],
+*/
 ];

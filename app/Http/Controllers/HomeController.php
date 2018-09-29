@@ -30,7 +30,7 @@ class HomeController extends Controller
         $data['posts']=Post::where('pub','=','0')->get();
         $data['slide']=Slide::where('pub','=','0')->get();
 
-     return view('libro.postlist',compact('data'));
+     return view(config('moconf.tmpl').'.postlist',compact('data'));
     }
        public function showPost($postid)
     {
