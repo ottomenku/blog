@@ -28,14 +28,19 @@ class HomeController extends Controller
     {
         $data['cat']=Categori::where('pub','=','0')->get()->pluck('name','id');      
         $data['posts']=Post::where('pub','=','0')->get();
-        $data['slide']=Slide::where('pub','=','0')->get();
-
+     //   $data['slide']=Post::where([['pub','=','0'],['slide','=','0']])->get();
+     $data['slide']=Post::where('slide','=','0')->get();
      return view(config('moconf.tmpl').'.postlist',compact('data'));
     }
-       public function showPost($postid)
+
+    public function showPost($postid)
     {
-        $data=Post::findOrFalse($postid)->get() ;
-     //   print_r($data['cat']);
-        return view('libro.index',compact('data'));
+        $data=Post::where('id','=',$postid)->first() ;
+     // print_r($data);
+       $data['cat']=Categori::where('pub','=','0')->get()->pluck('name','id'); 
+
+     //  print_r($data['cat']);
+     //  exit;
+        return view(config('moconf.tmpl').'.blogsingle',compact('data'));
     }
 }

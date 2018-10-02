@@ -25,7 +25,7 @@ class Categori extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','prior','note'];
+    protected $fillable = ['name','prior','note','pub'];
 
     public function posts()
 	{

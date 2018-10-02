@@ -1,14 +1,15 @@
+
 @extends('Bootstrap3.dashgum.backend')
 @section('content')
-
-<center><h3>Post szerkesztés</h3></center>   
+     
+<center><h3>Kategória feltöltés</h3></center>     
      {!! Form::model($data, [
-        'method' => 'PATCH',
-        'url' =>['manager/posts/'.$data->id] ,
+        'method' => 'POSt',
+        'url' =>['manager/categori/'] ,
         'class' => 'form-horizontal',
         'files' => true
     ]) !!}
 
     @include('Bootstrap3.includes.blog.post.form')
-
+    
 @endsection

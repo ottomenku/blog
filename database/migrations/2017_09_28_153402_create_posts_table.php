@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
         $table->string('intro')->nullable();
         $table->text('ptext');
         $table->tinyInteger('pub')->default(0);
+        $table->tinyInteger('slider')->default(0);
         $table->timestamps();
 
         });

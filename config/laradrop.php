@@ -8,7 +8,7 @@ return [
     'max_thumbnail_size' => env('LARADROP_MAX_THUMBNAIL_SIZE', 10),
     
     // dimensions for thumbnail generator
-    'thumb_dimensions' => ['width' => env('LARADROP_THUMB_WIDTH', 150), 'height' => env('LARADROP_THUMB_HEIGHT', 150)],
+    'thumb_dimensions' => ['width' => env('LARADROP_THUMB_WIDTH', 100), 'height' => env('LARADROP_THUMB_HEIGHT', 100)],
     
     // default thumbnail (if one can not be generated)
     'default_thumbnail_url' => env('LARADROP_DEFAULT_THUMB', '/vendor/jasekz/laradrop/img/genericThumbs/no-thumb.png'),
@@ -18,4 +18,5 @@ return [
     
     // if this needs to be publicly accessible, this is the 'root storage directory'
     'disk_public_url' => env('LARADROP_DISK_PUBLIC_URL', ''),
+    
 ];

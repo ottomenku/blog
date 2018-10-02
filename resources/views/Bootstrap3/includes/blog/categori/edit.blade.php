@@ -1,10 +1,10 @@
 @extends('Bootstrap3.dashgum.backend')
 @section('content')
 
-<center><h3>Post szerkesztés</h3></center>   
+<center><h3>Kategória szerkesztés</h3></center>   
      {!! Form::model($data, [
         'method' => 'PATCH',
-        'url' =>['manager/posts/'.$data->id] ,
+        'url' =>['manager/categori/'.$data->id] ,
         'class' => 'form-horizontal',
         'files' => true
     ]) !!}

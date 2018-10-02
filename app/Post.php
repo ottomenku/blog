@@ -25,7 +25,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['categori_id','cim','image','hastag','prior','intro','ptext'];
+    protected $fillable = ['categori_id','cim','image','hastag','prior','intro','ptext','pub','slide'];
 
     public function categori()
 	{

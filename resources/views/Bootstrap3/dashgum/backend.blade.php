@@ -164,13 +164,21 @@ $( ".datepickernoyear" ).datepicker({
 });
       
         $(document).ready(function () {
+
+            $(document.body).on('hidden.bs.modal', function () {
+                $('#myModal').removeData('bs.modal')
+            });
+
           //  jQuery('.laradrop').laradrop();
     
             // With custom params:
             jQuery('.laradrop').laradrop({
+                breadCrumbRootText: 'Home', // optional 
+                actionConfirmationText: 'Biztos törlöd?', // optional
                 onInsertCallback: function (src){
-                  jQuery('#avatar').attr('src', src);
-                  $('#myModal2').modal('toggle');
+               //   jQuery('#avatar').attr('src', src);
+                    changeImage(src);
+                    $('#myModal2').modal('toggle');
                 },
                 onErrorCallback: function(jqXHR,textStatus,errorThrown){
                     // if you need an error status indicator, implement here

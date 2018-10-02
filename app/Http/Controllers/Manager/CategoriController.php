@@ -12,19 +12,19 @@ use App\Categori;
 use App\Http\Controllers\Controller;
 
 
-class PostsController extends Controller
+class CategoriController extends Controller
 {
 
  private   $ob;
- private   $baseroute='/manager/posts';
- private   $baseview='post';
+ private   $baseroute='/manager/categori';
+ private   $baseview='categori';
  private   $validate=[];
  private   $search_columnT=[];
  
 
   public function __construct()
   {
-      $this->ob=new Post();
+      $this->ob=new Categori();
   }
     public function index(Request $request)
     {    
@@ -32,7 +32,7 @@ class PostsController extends Controller
         $keyword = $request->get('search');
         $perPage = 5;
 
-        $this->ob = $this->ob->where('id', '>', "1")->with('categori')->orderBy('id','DESC');
+        $this->ob = $this->ob->where('id', '>', "1")->orderBy('id','DESC');
         
         if (!empty($keyword)) {
            
@@ -49,24 +49,17 @@ class PostsController extends Controller
 
     public function create()
     {
-        $data['image']='';
-        $data['categori']= Categori::get()->pluck('name','id');   ;
+        //$data['image']='';
+        //$data['categori']= Categori::get()->pluck('name','id');   ;
         return view(config('moconf.includes').'.'.$this->baseview.'.create',compact('data'));
     }
     public function edit($id)
     {   
         $data=$this->ob->findOrFail($id);
-      
-       
-        $data['categori']= Categori::get()->pluck('name','id');   ;
+      //  $data['categori']= Categori::get()->pluck('name','id');   ;
         return view(config('moconf.includes').'.'.$this->baseview.'.edit',compact('data'));
     }
-    public function show($id)
-    {   
-        $data=$this->ob->findOrFail($id);
 
-        return view(config('moconf.includes').'.'.$this->baseview.'.show-modal',compact('data'));
-    }
 
  
     public function store(Request $request)
@@ -127,19 +120,5 @@ class PostsController extends Controller
         Session::flash('flash_message',  trans('mo.item_unpub'));
         return redirect($this->baseroute); 
     }
-    public function slideon($id)
-    { 
-
-        $this->ob=$this->ob->findOrFail($id);
-        $this->ob->update(['slide'=>0]);
-        Session::flash('flash_message',  trans('mo.item_pub'));
-        return redirect($this->baseroute); 
-    }
-    public function slideoff($id)
-    { 
-
-        Post::findOrFail($id)->update(['slide'=>1]);
-        Session::flash('flash_message',  trans('mo.item_unpub'));
-        return redirect($this->baseroute); 
-    }
+ 
 }

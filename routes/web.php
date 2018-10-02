@@ -33,10 +33,18 @@ Route::group(['prefix' => '/backend', 'middleware' => ['auth', 'roles'], 'roles'
 Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'roles'], 'roles' => 'manager'], function () {
     Route::get('/', 'manager\\PostsController@index');
     Route::resource('/posts', 'manager\\PostsController');
-    Route::get('/posts/del', 'manager\\PostsController@del');
-    Route::get('/posts/pub{id}', 'manager\\PostsController@pub');
-    Route::get('/posts/unpub{id}', 'manager\\PostsController@unpub');
+    Route::get('/posts/del/{id}', 'manager\\PostsController@del');
+    Route::get('/posts/pub/{id}', 'manager\\PostsController@pub');
+    Route::get('/posts/unpub/{id}', 'manager\\PostsController@unpub');
+    Route::get('/posts/slideon/{id}', 'manager\\PostsController@slideon');
+    Route::get('/posts/slideoff/{id}', 'manager\\PostsController@slideoff');
     //Route::any('/posts/upload', 'manager\\PostsController@upload');
+
+    Route::resource('/categori', 'manager\\CategoriController');
+    Route::get('/categori/del/{id}', 'manager\\CategoriController@del');
+    Route::get('/categori/pub/{id}', 'manager\\CategoriController@pub');
+    Route::get('/categori/unpub/{id}', 'manager\\CategoriController@unpub');
+
 });
 
 Route::group(['middleware' => config('laradrop.middleware') ? config('laradrop.middleware') : null], function () {

@@ -36,7 +36,7 @@
           <div class="row d-flex justify-content-end">
             <div class="col-md-12 px-5">
               <ul class="mb-5">
-                <li class="active"><a href="index.html"><span>Home</span></a></li>
+                <li class="active"><a href="/home"><span>Home</span></a></li>
                 @foreach ($data['cat'] as $cat=>$id)
                 <li><a href="/home/{{ $cat}}"><span>{{ $id }}</span></a></li>
                 @endforeach
@@ -56,7 +56,7 @@
 	        <div class="row no-gutters">
 	          <div class="col-md-12">
 	            <div class="colorlib-navbar-brand">
-	              <a class="colorlib-logo" href="index.html">Libro</a>
+	              <a class="colorlib-logo" href="index.html">Kriszta blog</a>
 	            </div>
 	            <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 	          </div>
@@ -68,14 +68,21 @@
       	<div class="image js-fullheight float-left">
       		<div class="home-slider owl-carousel js-fullheight">
 
+
          @foreach ($data['slide'] as $slide) 
-		        <div class="slider-item js-fullheight" style="background-image: url('{{$slide['path']}}');">
+         
+		        <div class="slider-item js-fullheight" style="background-image: url('{{$slide->image}}');">
+               
 		          <div class="overlay"></div>
 		          <div class="container">
 		            <div class="row slider-text align-items-end" data-scrollax-parent="true">
 		              <div class="col-md-10 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		              	<p class="cat"><span>Fashion</span></p>
-		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{$slide['cim']}}</h1>
+                    <p class="cat"><span>Fashion</span></p>
+                    
+		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                      <a href="/home/{{$slide->id}}" >
+                      {{$slide['cim']}}</h1>
+                      </a>
 		              </div>
 		            </div>
 		          </div>
