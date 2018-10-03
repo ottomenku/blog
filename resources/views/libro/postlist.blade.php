@@ -5,7 +5,7 @@
 <div class="col-md-6">
     <div class="blog-entry ftco-animate">
 <a href="/home/{{$post['id']}}" class="blog-image">
-  <img src="{{$post['image']}}" class="img-fluid" alt="">
+  <img src="/{{$post['image']}}" class="img-fluid" alt="">
 </a>
 <div class="text py-4">
 <div class="meta">

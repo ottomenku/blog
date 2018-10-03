@@ -16,6 +16,7 @@ Route::get('/', function () {
 });*/
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/{postid}', 'HomeController@showPost')->name('post');
+Route::get('/home/categori/{catid}', 'HomeController@categori');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('test/res', 'ControllerM');
@@ -25,27 +26,26 @@ Route::any('test/taskChange/{task}', 'ControllerM@taskChange');
 Auth::routes();
 
 Route::group(['prefix' => '/backend', 'middleware' => ['auth', 'roles'], 'roles' => 'manager'], function () {
-  Route::get('/', 'manager\\PostsController@index');  
-});
-
-
-//workadmin---------------------------------------------------------------
-Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'roles'], 'roles' => 'manager'], function () {
-    Route::get('/', 'manager\\PostsController@index');
-    Route::resource('/posts', 'manager\\PostsController');
-    Route::get('/posts/del/{id}', 'manager\\PostsController@del');
-    Route::get('/posts/pub/{id}', 'manager\\PostsController@pub');
-    Route::get('/posts/unpub/{id}', 'manager\\PostsController@unpub');
-    Route::get('/posts/slideon/{id}', 'manager\\PostsController@slideon');
-    Route::get('/posts/slideoff/{id}', 'manager\\PostsController@slideoff');
-    //Route::any('/posts/upload', 'manager\\PostsController@upload');
-
-    Route::resource('/categori', 'manager\\CategoriController');
-    Route::get('/categori/del/{id}', 'manager\\CategoriController@del');
-    Route::get('/categori/pub/{id}', 'manager\\CategoriController@pub');
-    Route::get('/categori/unpub/{id}', 'manager\\CategoriController@unpub');
-
-});
+    Route::get('/', 'Manager\\PostsController@index');  
+  });
+  
+  
+  //workadmin---------------------------------------------------------------
+  Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'roles'], 'roles' => 'manager'], function () {
+      Route::get('/', 'Manager\\PostsController@index');
+      Route::resource('/posts', 'Manager\\PostsController');
+      Route::get('/posts/del/{id}', 'Manager\\PostsController@del');
+      Route::get('/posts/pub/{id}', 'Manager\\PostsController@pub');
+      Route::get('/posts/unpub/{id}', 'Manager\\PostsController@unpub');
+      Route::get('/posts/slideon/{id}', 'Manager\\PostsController@slideon');
+      Route::get('/posts/slideoff/{id}', 'Manager\\PostsController@slideoff');
+      //Route::any('/posts/upload', 'manager\\PostsController@upload');
+  
+      Route::resource('/categori', 'Manager\\CategoriController');
+      Route::get('/categori/del/{id}', 'Manager\\CategoriController@del');
+      Route::get('/categori/pub/{id}', 'Manager\\CategoriController@pub');
+      Route::get('/categori/unpub/{id}', 'Manager\\CategoriController@unpub');
+  });
 
 Route::group(['middleware' => config('laradrop.middleware') ? config('laradrop.middleware') : null], function () {
     

@@ -8,24 +8,23 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="libro/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="libro/css/animate.css">
+    <link rel="stylesheet" href="/libro/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/libro/css/animate.css">
     
-    <link rel="stylesheet" href="libro/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="libro/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="libro/css/magnific-popup.css">
+    <link rel="stylesheet" href="/libro/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/libro/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/libro/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="libro/css/aos.css">
+    <link rel="stylesheet" href="/libro/css/aos.css">
+    <link rel="stylesheet" href="/libro/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="libro/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="libro/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="libro/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="/libro/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/libro/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="libro/css/flaticon.css">
-    <link rel="stylesheet" href="libro/css/icomoon.css">
-    <link rel="stylesheet" href="libro/css/style.css">
+    <link rel="stylesheet" href="/libro/css/flaticon.css">
+    <link rel="stylesheet" href="/libro/css/icomoon.css">
+    <link rel="stylesheet" href="/libro/css/style.css">
   </head>
   <body>
 
@@ -37,8 +36,8 @@
             <div class="col-md-12 px-5">
               <ul class="mb-5">
                 <li class="active"><a href="/home"><span>Home</span></a></li>
-                @foreach ($data['cat'] as $cat=>$id)
-                <li><a href="/home/{{ $cat}}"><span>{{ $id }}</span></a></li>
+                @foreach ($data['cat'] as $id=>$name)
+                <li><a href="/home/categori/{{$id}}"><span>{{ $name}}</span></a></li>
                 @endforeach
               </ul>
             </div>
@@ -71,7 +70,7 @@
 
          @foreach ($data['slide'] as $slide) 
          
-		        <div class="slider-item js-fullheight" style="background-image: url('{{$slide->image}}');">
+		        <div class="slider-item js-fullheight" style="background-image: url('/{{$slide->image}}');">
                
 		          <div class="overlay"></div>
 		          <div class="container">
@@ -100,7 +99,7 @@
           
       			
       		</div>
-      		<div class="row mt-5">
+      <!-- <div class="row mt-5">
 	          <div class="col text-center">
 	            <div class="block-27">
 	              <ul>
@@ -114,7 +113,7 @@
 	              </ul>
 	            </div>
 	          </div>
-	        </div>
+	        </div> -->
       	</div><!-- end: page-container-->
       </section>
     	
@@ -126,23 +125,23 @@
   	</div>
 
 
-  <script src="libro/js/jquery.min.js"></script>
-  <script src="libro/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="libro/js/popper.min.js"></script>
-  <script src="libro/js/bootstrap.min.js"></script>
-  <script src="libro/js/jquery.easing.1.3.js"></script>
-  <script src="libro/js/jquery.waypoints.min.js"></script>
-  <script src="libro/js/jquery.stellar.min.js"></script>
-  <script src="libro/js/owl.carousel.min.js"></script>
-  <script src="libro/js/jquery.magnific-popup.min.js"></script>
-  <script src="libro/js/aos.js"></script>
-  <script src="libro/js/jquery.animateNumber.min.js"></script>
-  <script src="libro/js/scrollax.min.js"></script>
-  <script src="libro/js/bootstrap-datepicker.js"></script>
-  <script src="libro/js/jquery.timepicker.min.js"></script>
+  <script src="/libro/js/jquery.min.js"></script>
+  <script src="/libro/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/libro/js/popper.min.js"></script>
+  <script src="/libro/js/bootstrap.min.js"></script>
+  <script src="/libro/js/jquery.easing.1.3.js"></script>
+  <script src="/libro/js/jquery.waypoints.min.js"></script>
+  <script src="/libro/js/jquery.stellar.min.js"></script>
+  <script src="/libro/js/owl.carousel.min.js"></script>
+  <script src="/libro/js/jquery.magnific-popup.min.js"></script>
+  <script src="/libro/js/aos.js"></script>
+  <script src="/libro/js/jquery.animateNumber.min.js"></script>
+  <script src="/libro/js/scrollax.min.js"></script>
+  <script src="/libro/js/bootstrap-datepicker.js"></script>
+  <script src="/libro/js/jquery.timepicker.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="libro/js/google-map.js"></script>
-  <script src="libro/js/main.js"></script>
+  <script src="/libro/js/google-map.js"></script>
+  <script src="/libro/js/main.js"></script>
     
   </body>
 </html>

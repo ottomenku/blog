@@ -49,7 +49,7 @@ class CategoriController extends Controller
 
     public function create()
     {
-        //$data['image']='';
+        $data=[];
         //$data['categori']= Categori::get()->pluck('name','id');   ;
         return view(config('moconf.includes').'.'.$this->baseview.'.create',compact('data'));
     }
@@ -92,15 +92,27 @@ class CategoriController extends Controller
 
     public function destroy($id)
     {  
-
-        $this->ob->destroy($id);
+        try {
+            $this->ob->destroy($id);
+        } catch (Exception $e) {
+           // echo 'Caught exception: ',  $e->getMessage(), "\n";
+           Session::flash('flash_message','nem  törölhető,(valószínűleg nem üres)');
+        return redirect($this->baseroute); 
+        }
+        
         Session::flash('flash_message', trans('mo.deleted'));
         return redirect($this->baseroute); 
     }
     public function del($id)
     {  
-
-        $this->ob->destroy($id);
+        try {
+            $this->ob->destroy($id);
+        } catch (Exception $e) {
+           // echo 'Caught exception: ',  $e->getMessage(), "\n";
+         Session::flash('flash_message','nem  törölhető,(valószínűleg nem üres)');
+        return redirect($this->baseroute); 
+        }
+        
         Session::flash('flash_message', trans('mo.deleted'));
         return redirect($this->baseroute); 
     }

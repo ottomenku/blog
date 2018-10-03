@@ -38,7 +38,7 @@
               <ul class="mb-5">
                 <li class="active"><a href="index.html"><span>Home</span></a></li>
                 @foreach ($data['cat'] as $id=>$name)
-                <li><a href="/home/{{$id}}"><span>{{ $name }}</span></a></li>
+                <li><a href="/home/categori/{{$id}}"><span>{{ $name }}</span></a></li>
                 @endforeach
               </ul>
             </div>

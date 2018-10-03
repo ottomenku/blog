@@ -10,6 +10,6 @@
         'files' => true
     ]) !!}
 
-    @include('Bootstrap3.includes.blog.post.form')
+    @include('Bootstrap3.includes.blog.categori.form')
     
 @endsection

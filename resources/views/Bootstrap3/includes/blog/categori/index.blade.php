@@ -4,7 +4,7 @@
 <center><h3>Postok</h3></center>
 <a href="/manager/categori/create "
     class="btn btn-success btn-xm" title="create">
-   Új post feltöltése
+   Új kategória feltöltése
  </a>     
     <div class="table-responsive">
     <table class="table table-borderless">

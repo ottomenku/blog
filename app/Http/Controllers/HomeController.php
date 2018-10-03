@@ -32,7 +32,13 @@ class HomeController extends Controller
      $data['slide']=Post::where('slide','=','0')->get();
      return view(config('moconf.tmpl').'.postlist',compact('data'));
     }
-
+    public function categori($catid)
+    {
+        $data['cat']=Categori::where('pub','=','0')->get()->pluck('name','id');      
+        $data['posts']=Post::where([['pub','=','0'],['categori_id','=',$catid]])->get();
+        $data['slide']=Post::where('slide','=','0')->get();
+        return view(config('moconf.tmpl').'.postlist',compact('data'));
+    }
     public function showPost($postid)
     {
         $data=Post::where('id','=',$postid)->first() ;

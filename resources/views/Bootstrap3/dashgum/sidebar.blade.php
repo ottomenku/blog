@@ -19,7 +19,7 @@ $menuT=[
 
 'manager'=>[  
 ['/manager/posts', 'Postok'],
-['/manager/slides' , 'Slider'],
+//['/manager/slides' , 'Slider'],
 ['/manager/categori' , 'Kategóriák'],
 ],
 
@@ -82,7 +82,7 @@ if(empty($worker)){$workerbool=false;}
      <!-- Manager**************************************************** -->
      <a  class="btn btn-primary menucsoport"
      href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
-      <i class="fa fa-edit "> </i>Manager 
+      <i class="fa fa-edit "> </i>Admin 
     </a>
      
       <div >
